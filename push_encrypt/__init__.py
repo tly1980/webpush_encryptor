@@ -3,7 +3,6 @@ import base64
 import hmac
 import hashlib
 import random
-import binascii
 
 import pyelliptic
 from cryptography.hazmat.backends import default_backend
@@ -79,8 +78,8 @@ def iv(base, counter):
 class PushEncryptor(object):
 
   def __init__(
-      self, subscription,
-      sender_pubkey_str=None, sender_privkey_str=None, curve='prime256v1'):
+        self, subscription, sender_pubkey_str=None, sender_privkey_str=None,
+        curve='prime256v1'):
     self.curve = curve
     self.subscription = subscription
     self.receiver_pubkey = base64.urlsafe_b64decode(
