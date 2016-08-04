@@ -125,7 +125,6 @@ class PushEncryptor(object):
     }
 
   def encrypt(self, crypto_info, text):
-    print 'CEK size: %s' % len(crypto_info['CEK'])
     key = algorithms.AES(crypto_info['CEK'])
     mode = modes.GCM(crypto_info['nonce'])
     encryptor = Cipher(key, mode, backend=default_backend()).encryptor()
